@@ -84,7 +84,7 @@ public class TreadDemo {
     //的但尚未执行的TimerTask将不会再执行,新的任务也不能被调度(这个问题称为"线程泄露"Thread Leakage)
     public static void outOfTime(){
         Timer timer = new Timer();
-        timer.schedule(new ThrowTask(), -1);
+        timer.schedule(new ThrowTask(), 1);
     }
 
     static class ThrowTask extends TimerTask{
@@ -92,4 +92,7 @@ public class TreadDemo {
             throw new RuntimeException();
         }
     }
+
+    //携带结果的任务Callable与Future
+    
 }
